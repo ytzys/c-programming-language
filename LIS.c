@@ -7,7 +7,7 @@ typedef struct element {
 } elem;
 
 int main() {
-	int array[6] = {5,3,4,8,6,7};	
+	int array[6] = {5, 3, 4, 8, 6, 7};	
 	elem result[6];
 	result[0].current_length = 1;
 	result[0].last_num_seq = -1;
