@@ -12,25 +12,22 @@ int main() {
 	result[0].current_length = 1;
 	result[0].last_num_seq = -1;
 	int i, j, max_length, max_index;
+	max_length = 1;
+	max_index = 0;
 	for(i = 1; i < 6; i++) {
-		max_length = 0;
-		max_index = -1;
+		result[i].current_length = 1;
+		result[i].last_num_seq = -1; 
 		for(j = 0; j < i; j++) {
-			if(array[j] < array[i] && max_length < result[j].current_length) {
-				max_length = result[j].current_length;
-				max_index = j;
+			if(array[j] < array[i] && result[i].current_length < 1 + result[j].current_length) {
+				result[i].current_length = result[j].current_length + 1;
+				result[i].last_num_seq = j;
 			}		
 		}	
-		result[i].current_length = max_length + 1;
-		result[i].last_num_seq = max_index;
-	}
-	max_length = 0;
-	for(i = 0; i < 6; i++) {
 		if(max_length < result[i].current_length) {
 			max_length = result[i].current_length;
 			max_index = i;
 		}
-	}	
+	}
 	printf("longest increasing sequence length is:%d\n", max_length);
 	printf("longest increasing sequence is(reversed):\t");
 	i = max_index; 
